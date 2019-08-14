@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
+
+    <item android:id="@+id/insert_menu"
+        android:title="New Travel Deal"
+        app:showAsAction="never"/>
+    <item android:id="@+id/logout_menu"
+        android:title="Logout"
+        app:showAsAction="never"/>
+
+    <!--<item
         android:id="@+id/insert_menu"
         android:title="@string/insert_new_deal"
         app:showAsAction="never"/>
@@ -9,5 +17,5 @@
     <item android:id="@+id/logout_menu"
         android:title="@string/logout"
         app:showAsAction="never"/>
-
+-->
 </menu>

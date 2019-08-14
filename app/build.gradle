@@ -21,10 +21,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.google.firebase:firebase-database:16.0.4'
-
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
+    //implementation 'com.google.firebase:firebase-storage:18.0.1'
+    //implementation 'com.google.firebase:firebase-auth:18.1.0'
+    //com.google.firebase:firebase-auth:16.2.0
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
 
     // Required only if Facebook login support is required
@@ -40,4 +45,477 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    //testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //implementation 'com.google.firebase:firebase-auth:17.0.0'
+    //implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+    //implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    //implementation 'com.firebaseui:firebase-ui-storage:5.0.0'
+    //implementation ('com.squareup.picasso:picasso:2.71828') {
+        //exclude group: 'com.android.support'
+        //exclude module: ['exifinterface', 'support-annotations']
+
+
+        /*
+
+    Latest SDK versions
+    Service	Gradle dependency
+    Firebase Core	com.google.firebase:firebase-core:17.0.1
+    Ads	com.google.firebase:firebase-ads:18.1.1
+    Analytics	com.google.firebase:firebase-analytics:17.0.1
+    App Indexing	com.google.firebase:firebase-appindexing:19.0.0
+    Authentication	com.google.firebase:firebase-auth:18.1.0
+    Cloud Firestore	com.google.firebase:firebase-firestore:20.2.0
+    Cloud Functions	com.google.firebase:firebase-functions:18.1.0
+    Cloud Messaging	com.google.firebase:firebase-messaging:19.0.1
+    Cloud Storage	com.google.firebase:firebase-storage:18.1.1
+    Crash Reporting	com.google.firebase:firebase-crash:16.2.1
+    Crashlytics	com.crashlytics.sdk.android:crashlytics:2.10.1
+    Dynamic Links	com.google.firebase:firebase-dynamic-links:18.0.0
+    Invites	com.google.firebase:firebase-invites:17.0.0
+    In-App Messaging	com.google.firebase:firebase-inappmessaging:18.0.2
+    In-App Messaging Display	com.google.firebase:firebase-inappmessaging-display:18.0.2
+    ML Kit: Vision APIs	com.google.firebase:firebase-ml-vision:22.0.0
+    ML Kit: Image Labeling Model	com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    ML Kit: Face Detection Model	com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    ML Kit: Object Detection and Tracking Model	com.google.firebase:firebase-ml-vision-object-detection-model:18.0.0
+    ML Kit: Natural Language APIs	com.google.firebase:firebase-ml-natural-language:20.0.2
+    ML Kit: Language Identification Model	com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.2
+    ML Kit: Translate Model	com.google.firebase:firebase-ml-natural-language-translate-model:20.0.2
+    ML Kit: Smart Reply Model	com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.2
+    ML Kit: Custom Model APIs	com.google.firebase:firebase-ml-model-interpreter:20.0.1
+    ML Kit: AutoML Vision Edge API	com.google.firebase:firebase-ml-vision-automl:18.0.0
+    Performance Monitoring	com.google.firebase:firebase-perf:18.0.1
+    Realtime Database	com.google.firebase:firebase-database:18.0.1
+    Remote Config	com.google.firebase:firebase-config:18.0.0
+    Firebase Bill of Materials (BoM)	com.google.firebase:firebase-bom:21.1.0
+    The latest Firebase BoM version contains the latest versions of each Firebase Android library available at the BoM's release.
+    For the library versions mapped to previous BoM versions, review the release notes below.
+
+
+
+
+
+    Update - July 24, 2019
+    Realtime Database version 18.0.1
+    Internal changes to ensure functionality alignment with other SDK releases.
+    The SDK now reports the correct version number (via FirebaseDatabase.getSdkVersion().
+    Cloud Firestore version 20.2.0
+    Added a @DocumentId annotation which can be used on a DocumentReference or String property in a POJO to indicate that the SDK should automatically populate it with the document's ID.
+
+    Fixed an internal assertion that was triggered when an update with a FieldValue.serverTimestamp() and an update with a FieldValue.increment() were pending for the same document. Refer to this GitHub issue for more details.
+
+    Improved performance of queries with large result sets.
+
+    Improved performance for queries with filters that only return a small subset of the documents in a collection.
+
+    Instead of failing silently, Cloud Firestore now crashes the client app if it fails to load SSL Ciphers. To avoid these crashes, you must bundle Conscrypt to support non-GMSCore devices on Android API level 19 (KitKat) or earlier (for more information, refer to TLS on Android).
+
+    Cloud Firestore Kotlin extensions version 20.2.0
+    Visit the open source documentation to learn more about getting started with and using Kotlin extensions.
+
+    The Kotlin extensions library transitively includes the updated firebase-firestore library. The Kotlin extensions library has no additional updates.
+
+    Cloud Functions for Firebase Client SDK version 18.1.0
+    Added getTimeout method to get the timeout for a callable. For more details, refer to GitHub PR #574.
+    Storage version 18.1.1
+    Internal changes to ensure functionality alignment with other SDK releases.
+    ML Kit Natural Language version 20.0.2
+    Fixed an issue where Smart Reply would log the input text. Refer to this GitHub issue for more details.
+
+    ML Kit Natural Language classes are now annotated with @ParametersAreNonnullByDefault to ensure the compiler will warn about passing in null values to APIs that don't expect them.
+
+    ML Kit Language Identification Model version 20.0.2
+    No changes from previous version
+    ML Kit Smart Reply Model version 20.0.2
+    No changes from previous version
+    ML Kit Translate Model version 20.0.2
+    No changes from previous version
+    Firebase Bill of Materials (Firebase BoM) version 21.1.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+    com.google.firebase:firebase-ads-lite:18.1.1
+    com.google.firebase:firebase-ads:18.1.1
+    com.google.firebase:firebase-analytics:17.0.1
+    com.google.firebase:firebase-appindexing:19.0.0
+    com.google.firebase:firebase-auth:18.1.0
+    com.google.firebase:firebase-config:18.0.0
+    com.google.firebase:firebase-core:17.0.1
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-database:18.0.1
+    com.google.firebase:firebase-dynamic-links:18.0.0
+    com.google.firebase:firebase-firestore:20.2.0
+    com.google.firebase:firebase-functions:18.1.0
+    com.google.firebase:firebase-inappmessaging-display:18.0.2
+    com.google.firebase:firebase-inappmessaging:18.0.2
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-messaging:19.0.1
+    com.google.firebase:firebase-ml-model-interpreter:20.0.1
+    com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.2
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.2
+    com.google.firebase:firebase-ml-natural-language-smart-reply:18.0.2
+    com.google.firebase:firebase-ml-natural-language-translate-model:20.0.2
+    com.google.firebase:firebase-ml-natural-language-translate:20.0.2
+    com.google.firebase:firebase-ml-natural-language:20.0.2
+    com.google.firebase:firebase-ml-vision-automl:18.0.0
+    com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    com.google.firebase:firebase-ml-vision-object-detection-model:18.0.0
+    com.google.firebase:firebase-ml-vision:22.0.0
+    com.google.firebase:firebase-perf:18.0.1
+    com.google.firebase:firebase-storage:18.1.1
+
+
+
+
+
+
+    Update - July 12, 2019
+    Authentication version 18.1.0
+    Added a new API to retrieve the OAuth secret in OAuthCredential when signing in with Twitter using web-based Generic OAuth Login. The secret is required to access Twitter APIs. We suggest migrating away from TwitterKit as it has been discontinued.
+    In-App Messaging version 18.0.2
+    Updated to send engagement metrics via Analytics.
+    Fixed issue with callbacks triggering for Card templates.
+    In-App Messaging-display version 18.0.2
+    Updated to support Picasso version 2.71828.
+    Updated to send engagement metrics via Analytics.
+    Fixed issue with callbacks triggering for Card templates.
+    Storage version 18.1.0
+    Added StorageReference.list() and StorageReference.listAll(), which allows developers to list the files and folders under the given StorageReference.
+    Added validation to StorageReference.getDownloadUrl() and StorageReference.getMetadata() to return an error if the reference is the root of the bucket.
+    ML Kit Common version 20.0.1
+    No changes from previous version
+    ML Kit Model Interpreter version 20.0.1
+    No changes from previous version
+    ML Kit Natural Language version 20.0.1
+    Internal changes to ensure functionality alignment with other SDK releases.
+    ML Kit Language Identification Model version 20.0.1
+    No changes from previous version
+    ML Kit Smart Reply Model version 20.0.1
+    Internal improvements to reduce library size and refactored code.
+    ML Kit Translate Model version 20.0.1
+    No changes from previous version
+    ML Kit Vision version 22.0.0
+    Removed getEntityId from FirebaseVisionObject.
+    ML Kit Vision AutoML version 18.0.0
+    Internal cleanup.
+    ML Kit Object Detection and Tracking Model version 18.0.0
+    Improved detecting small objects with FirebaseVisionObjectDetector.
+
+    Fixed the known issue where for Android API level 18 and earlier, the object detector recycles Bitmap objects passed to it. You no longer need to pass a copy of the Bitmap.
+
+    Fixed the known issue where in streaming mode, if the category of an object changes, the detector assigns it a new tracking ID.
+
+    Analytics version 17.0.1
+    Fixed minor bugs, including an issue where apps reported analytics data with an empty Google app ID.
+    Firebase Bill of Materials (Firebase BoM) version 21.0.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-ml-natural-language-translate-model:20.0.1
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+    com.google.firebase:firebase-analytics:17.0.1
+    com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    com.google.firebase:firebase-config:18.0.0
+    com.google.firebase:firebase-ml-vision-object-detection-model:18.0.0
+    com.google.firebase:firebase-auth:18.1.0
+    com.google.firebase:firebase-inappmessaging-display:18.0.2
+    com.google.firebase:firebase-storage:18.1.0
+    com.google.firebase:firebase-ads:18.1.0
+    com.google.firebase:firebase-appindexing:19.0.0
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.1
+    com.google.firebase:firebase-perf:18.0.1
+    com.google.firebase:firebase-inappmessaging:18.0.2
+    com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.1
+    com.google.firebase:firebase-ml-natural-language-smart-reply:18.0.1
+    com.google.firebase:firebase-ml-natural-language-translate:20.0.1
+    com.google.firebase:firebase-ml-natural-language:20.0.1
+    com.google.firebase:firebase-ads-lite:18.1.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    com.google.firebase:firebase-messaging:19.0.1
+    com.google.firebase:firebase-core:17.0.1
+    com.google.firebase:firebase-ml-model-interpreter:20.0.1
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-firestore:20.1.0
+    com.google.firebase:firebase-ml-vision:22.0.0
+    com.google.firebase:firebase-functions:18.0.0
+    com.google.firebase:firebase-dynamic-links:18.0.0
+    com.google.firebase:firebase-database:18.0.0
+    com.google.firebase:firebase-ml-vision-automl:18.0.0
+
+
+
+
+    Update - June 27, 2019
+    google-services plugin 4.3.0
+    Improved stability.
+    Implemented fix for NPE crashes.
+    With this release, apply the plugin to top-level apps only; do not apply the plugin to libraries (with the exception of instant apps).
+    Plugin tasks will now correctly be skipped if the google-services file has not changed since last run.
+    strict-version-matching plugin 1.2.0
+    Improved stability.
+    Implemented fix for NPE crashes.
+
+
+
+    Update - June 24, 2019
+    Cloud Firestore version 20.1.0
+    SSL and gRPC initialization now happens on a separate thread, which reduces the time taken to produce the first query result.
+    Added clearPersistence(), which clears the persistent storage including pending writes and cached documents. This is intended to help write reliable tests. Refer to this GitHub issue for more details.
+    Cloud Firestore Kotlin extensions version 20.1.0
+    Visit the open source documentation to learn more about getting started with and using Kotlin extensions.
+
+    The Kotlin extensions library transitively includes the updated firebase-firestore library. The Kotlin extensions library has no additional updates.
+
+    Firebase Instance ID version 19.0.1
+    Internal changes to ensure functionality alignment with other SDK releases.
+    Cloud Messaging version 19.0.1
+    Fixed an issue where FirebaseMessagingService.onNewToken would be invoked for tokens created for non-default FirebaseApp instances.
+    SDK now only retries topic subscribtions and token registration on the following errors: "ERROR_SERVICE_NOT_AVAILABLE" and "ERROR_INTERNAL_SERVER_ERROR".
+    Performance Monitoring version 18.0.1
+    Fixed an IllegalStateException that was thrown when an activity with hardware acceleration disabled was stopped.
+    Firebase Bill of Materials (Firebase BoM) version 20.1.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-core:17.0.0
+    com.google.firebase:firebase-ads:18.0.0
+    com.google.firebase:firebase-analytics:17.0.0
+    com.google.firebase:firebase-appindexing:19.0.0
+    com.google.firebase:firebase-auth:18.0.0
+    com.google.firebase:firebase-firestore:20.1.0
+    com.google.firebase:firebase-functions:18.0.0
+    com.google.firebase:firebase-messaging:19.0.1
+    com.google.firebase:firebase-storage:18.0.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-dynamic-links:18.0.0
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-inappmessaging:18.0.1
+    com.google.firebase:firebase-inappmessaging-display:18.0.1
+    com.google.firebase:firebase-ml-vision:21.0.0
+    com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    com.google.firebase:firebase-ml-natural-language:20.0.0
+    com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.0
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.0
+    com.google.firebase:firebase-ml-model-interpreter:20.0.0
+    com.google.firebase:firebase-perf:18.0.1
+    com.google.firebase:firebase-database:18.0.0
+    com.google.firebase:firebase-config:18.0.0
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+
+
+
+
+
+    Update - June 20, 2019
+    In-App Messaging version 18.0.1
+    Fixed an issue that prevented impressions from getting recorded in certain scenarios when the device is offline.
+    In-App Messaging-display version 18.0.1
+    Fixed an issue that prevented impressions from getting recorded in certain scenarios when the device is offline.
+    Firebase Bill of Materials (Firebase BoM) version 20.0.1
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-core:17.0.0
+    com.google.firebase:firebase-ads:18.0.0
+    com.google.firebase:firebase-analytics:17.0.0
+    com.google.firebase:firebase-appindexing:19.0.0
+    com.google.firebase:firebase-auth:18.0.0
+    com.google.firebase:firebase-firestore:20.0.0
+    com.google.firebase:firebase-functions:18.0.0
+    com.google.firebase:firebase-messaging:19.0.0
+    com.google.firebase:firebase-storage:18.0.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-dynamic-links:18.0.0
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-inappmessaging:18.0.1
+    com.google.firebase:firebase-inappmessaging-display:18.0.1
+    com.google.firebase:firebase-ml-vision:21.0.0
+    com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    com.google.firebase:firebase-ml-natural-language:20.0.0
+    com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.0
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.0
+    com.google.firebase:firebase-ml-model-interpreter:20.0.0
+    com.google.firebase:firebase-perf:18.0.0
+    com.google.firebase:firebase-database:18.0.0
+    com.google.firebase:firebase-config:18.0.0
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+
+
+
+
+
+        Update - June 17, 2019
+    This release is a MAJOR version update and includes breaking changes.
+    With this release, libraries are migrated from the Android Support Libraries to the Jetpack (AndroidX) Libraries.
+    The updated libraries will not work unless you make the following changes in your app:
+    Upgrade com.android.tools.build:gradle to v3.2.1 or later.
+    Upgrade compileSdkVersion to 28 or later.
+    Update your app to use Jetpack (AndroidX); follow the instructions in Migrating to AndroidX.
+    The following libraries are updated with this release:
+
+    Ads version 18.0.0
+    Analytics version 17.0.0
+    App Indexing version 19.0.0
+    Authentication version 18.0.0
+    Cloud Firestore version 20.0.0
+    Cloud Firestore-ktx version 20.0.0
+    Cloud Functions (client) version 18.0.0
+    Cloud Messaging version 19.0.0
+    Cloud Storage version 18.0.0
+    Dynamic Links version 18.0.0
+    In-App Messaging version 18.0.0
+    In-App Messaging Display version 18.0.0
+    Instance IDs version 19.0.0
+    ML Kit Common version 20.0.0
+    ML Kit Vision version 21.0.0
+    ML Kit Image Labeling Model version 18.0.0
+    ML Kit Face Detection Model version 18.0.0
+    ML Kit Object Detection and Tracking Model version 17.0.0
+    ML Kit Vision AutoML version 17.0.0
+    ML Kit Natural Language version 20.0.0
+    ML Kit Language Identification Model version 20.0.0
+    ML Kit Smart Reply Model version 20.0.0
+    ML Kit Translate Model version 20.0.0
+    ML Kit Model Interpreter version 20.0.0
+    Realtime Database version 18.0.0
+    Performance Monitoring version 18.0.0
+    Remote Config version 18.0.0
+    A/B Testing version 18.0.0
+    Firebase Bill of Materials (Firebase BoM) version 20.0.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-core:17.0.0
+    com.google.firebase:firebase-ads:18.0.0
+    com.google.firebase:firebase-analytics:17.0.0
+    com.google.firebase:firebase-appindexing:19.0.0
+    com.google.firebase:firebase-auth:18.0.0
+    com.google.firebase:firebase-firestore:20.0.0
+    com.google.firebase:firebase-functions:18.0.0
+    com.google.firebase:firebase-messaging:19.0.0
+    com.google.firebase:firebase-storage:18.0.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-dynamic-links:18.0.0
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-inappmessaging:18.0.0
+    com.google.firebase:firebase-inappmessaging-display:18.0.0
+    com.google.firebase:firebase-ml-vision:21.0.0
+    com.google.firebase:firebase-ml-vision-image-label-model:18.0.0
+    com.google.firebase:firebase-ml-vision-face-model:18.0.0
+    com.google.firebase:firebase-ml-natural-language:20.0.0
+    com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.0
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.0
+    com.google.firebase:firebase-ml-model-interpreter:20.0.0
+    com.google.firebase:firebase-perf:18.0.0
+    com.google.firebase:firebase-database:18.0.0
+    com.google.firebase:firebase-config:18.0.0
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+
+
+
+
+
+
+        Update - May 31, 2019
+    Cloud Firestore version 19.0.2
+    Updated gRPC to 1.21.0. A bug in the prior version would occasionally cause a crash if a network state change occurred concurrently with an RPC. Refer to GitHub issue #428 for more details.
+    Firebase Bill of Materials (Firebase BoM) version 19.0.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-core:16.0.9
+    com.google.firebase:firebase-ads:17.2.1
+    com.google.firebase:firebase-analytics:16.5.0
+    com.google.firebase:firebase-appindexing:18.0.0
+    com.google.firebase:firebase-auth:17.0.0
+    com.google.firebase:firebase-firestore:19.0.2
+    com.google.firebase:firebase-functions:17.0.0
+    com.google.firebase:firebase-messaging:18.0.0
+    com.google.firebase:firebase-storage:17.0.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-dynamic-links:17.0.0
+    com.google.firebase:firebase-invites:17.0.0
+    com.google.firebase:firebase-inappmessaging:17.2.0
+    com.google.firebase:firebase-inappmessaging-display:17.2.0
+    com.google.firebase:firebase-ml-vision:20.0.0
+    com.google.firebase:firebase-ml-vision-image-label-model:17.0.2
+    com.google.firebase:firebase-ml-vision-face-model:17.0.2
+    com.google.firebase:firebase-ml-natural-language:19.0.1
+    com.google.firebase:firebase-ml-natural-language-language-id-model:19.0.1
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:19.0.1
+    com.google.firebase:firebase-ml-model-interpreter:19.0.0
+    com.google.firebase:firebase-perf:17.0.2
+    com.google.firebase:firebase-database:17.0.0
+    com.google.firebase:firebase-config:17.0.0
+    com.crashlytics.sdk.android:crashlytics:2.10.1
+
+
+
+
+        Update - April 02, 2019
+    Firebase Bill of Materials (Firebase BoM) version 17.0.0
+    Firebase Android SDKs mapped to this BoM version:
+
+    com.google.firebase:firebase-core:16.0.8
+    com.google.firebase:firebase-ads:17.2.0
+    com.google.firebase:firebase-analytics:16.4.0
+    com.google.firebase:firebase-appindexing:17.1.0
+    com.google.firebase:firebase-auth:16.2.0
+    com.google.firebase:firebase-firestore:18.2.0
+    com.google.firebase:firebase-functions:16.3.0
+    com.google.firebase:firebase-messaging:17.5.0
+    com.google.firebase:firebase-storage:16.1.0
+    com.google.firebase:firebase-crash:16.2.1
+    com.google.firebase:firebase-dynamic-links:16.1.8
+    com.google.firebase:firebase-invites:16.1.1
+    com.google.firebase:firebase-inappmessaging:17.1.1
+    com.google.firebase:firebase-inappmessaging-display:17.1.1
+    com.google.firebase:firebase-ml-vision:19.0.3
+    com.google.firebase:firebase-ml-vision-image-label-model:17.0.2
+    com.google.firebase:firebase-ml-vision-face-model:17.0.2
+    com.google.firebase:firebase-ml-natural-language:18.2.0
+    com.google.firebase:firebase-ml-natural-language-language-id-model:18.0.3
+    com.google.firebase:firebase-ml-natural-language-smart-reply-model:18.0.0
+    com.google.firebase:firebase-ml-model-interpreter:18.0.0
+    com.google.firebase:firebase-perf:16.2.4
+    com.google.firebase:firebase-database:16.1.0
+    com.google.firebase:firebase-config:16.4.1
+    com.crashlytics.sdk.android:crashlytics:2.9.9
+
+
+
+
+        Update - March 15, 2019
+    Firebase Bill of Materials (Firebase BoM) version 16.0.0
+        com.google.firebase:firebase-core:16.0.7
+    com.google.firebase:firebase-ads:17.2.0
+    com.google.firebase:firebase-analytics:16.4.0
+    com.google.firebase:firebase-appindexing:17.1.0
+    com.google.firebase:firebase-auth:16.2.0
+    com.google.firebase:firebase-firestore:18.1.0
+    com.google.firebase:firebase-functions:16.3.0
+    com.google.firebase:firebase-messaging:17.4.0
+
+    com.crashlytics.sdk.android:crashlytics:2.9.9
+    com.google.firebase:firebase-dynamic-links:16.1.7
+    com.google.firebase:firebase-inappmessaging:17.1.0
+    com.google.firebase:firebase-inappmessaging-display:17.1.0
+    com.google.firebase:firebase-ml-model-interpreter:17.0.3
+    com.google.firebase:firebase-ml-natural-language:18.1.1
+    com.google.firebase:firebase-ml-natural-language-language-id-model:18.0.2
+    com.google.firebase:firebase-ml-vision:19.0.2
+    com.google.firebase:firebase-ml-vision-image-label-model:17.0.2
+    com.google.firebase:firebase-perf:16.2.4
+
+    com.google.firebase:firebase-database:16.1.0
+    com.google.firebase:firebase-storage:16.1.0
+
+    com.google.firebase:firebase-config:16.4.0
+         */
 }
