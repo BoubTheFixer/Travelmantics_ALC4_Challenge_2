@@ -1,8 +1,6 @@
 # Travelmantics_ALC4_Challenge_2
 
-#Travelmantics
-
-Android project created and tested from Android Studio 3.4.2
+Travelmantics is an Android challenge 2.0 in the phase 1 of the ALC4.0 Google Africa Certification Course. The project was created and tested from Android Studio 3.4.2.
 
 This directory contains the full implementation of the Travelmantics application for the Android platform, demonstrating the basic facilities that applications will use.  You can run the application either directly from the Run'app' list in the app launcher (it is named Skeleton App) or by selecting it from the top list in the Sample Code app.
 
