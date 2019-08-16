@@ -1,10 +1,8 @@
 # Travelmantics_ALC4_Challenge_2
 
-=================================================================
                           Travelmantics
-               Swahili Greetings Android project
-          created and tested from Android Studio 3.4.2
-=================================================================
+               \nSwahili Greetings Android project
+          \ncreated and tested from Android Studio 3.4.2
 
 This directory contains the full implementation of the Travelmantics application for the Android platform, demonstrating the basic facilities that applications will use.  You can run the application either directly from the Run'app' list in the app launcher (it is named Skeleton App) or by selecting it from the top list in the Sample Code app.
 
